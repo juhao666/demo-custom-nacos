@@ -1,0 +1,68 @@
+2025-12-29T14:15:08.542+08:00  INFO 21680 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : Starting Application using Java 17.0.11 with PID 21680 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-asac\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T14:15:08.626+08:00  INFO 21680 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T14:15:08.950+08:00  INFO 21680 --- [registry-center] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T14:15:08.952+08:00  INFO 21680 --- [registry-center] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T14:15:13.786+08:00  INFO 21680 --- [registry-center] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8848 (http)
+2025-12-29T14:15:13.841+08:00  INFO 21680 --- [registry-center] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T14:15:13.842+08:00  INFO 21680 --- [registry-center] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T14:15:14.054+08:00  INFO 21680 --- [registry-center] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T14:15:14.055+08:00  INFO 21680 --- [registry-center] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5099 ms
+2025-12-29T14:15:16.121+08:00  WARN 21680 --- [registry-center] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-12-29T14:15:16.299+08:00  INFO 21680 --- [registry-center] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8848 (http) with context path '/'
+2025-12-29T14:15:16.360+08:00  INFO 21680 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : Started Application in 10.372 seconds (process running for 13.275)
+2025-12-29T14:15:16.564+08:00  INFO 21680 --- [registry-center] [http-nio-8848-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T14:15:16.566+08:00  INFO 21680 --- [registry-center] [http-nio-8848-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T14:15:16.570+08:00  INFO 21680 --- [registry-center] [http-nio-8848-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2025-12-29T14:44:14.445+08:00  INFO 21680 --- [registry-center] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T14:44:43.320+08:00  INFO 21680 --- [registry-center] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-29T14:45:04.353+08:00  INFO 6156 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : Starting Application using Java 17.0.11 with PID 6156 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-asac\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T14:45:04.365+08:00  INFO 6156 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T14:45:04.612+08:00  INFO 6156 --- [registry-center] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T14:45:04.613+08:00  INFO 6156 --- [registry-center] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T14:45:09.032+08:00  INFO 6156 --- [registry-center] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8848 (http)
+2025-12-29T14:45:09.065+08:00  INFO 6156 --- [registry-center] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T14:45:09.066+08:00  INFO 6156 --- [registry-center] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T14:45:09.240+08:00  INFO 6156 --- [registry-center] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T14:45:09.242+08:00  INFO 6156 --- [registry-center] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4626 ms
+2025-12-29T14:45:10.777+08:00  WARN 6156 --- [registry-center] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-12-29T14:45:10.901+08:00  INFO 6156 --- [registry-center] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8848 (http) with context path '/'
+2025-12-29T14:45:10.938+08:00  INFO 6156 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : Started Application in 8.876 seconds (process running for 11.621)
+2025-12-29T14:45:11.220+08:00  INFO 6156 --- [registry-center] [http-nio-8848-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T14:45:11.221+08:00  INFO 6156 --- [registry-center] [http-nio-8848-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T14:45:11.223+08:00  INFO 6156 --- [registry-center] [http-nio-8848-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-29T14:48:28.965+08:00  INFO 6156 --- [registry-center] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T14:48:46.926+08:00  INFO 6156 --- [registry-center] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-29T14:48:55.603+08:00  INFO 5280 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : Starting Application using Java 17.0.11 with PID 5280 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-asac\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T14:48:55.618+08:00  INFO 5280 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T14:48:55.906+08:00  INFO 5280 --- [registry-center] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T14:48:55.908+08:00  INFO 5280 --- [registry-center] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T14:49:01.114+08:00  INFO 5280 --- [registry-center] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8848 (http)
+2025-12-29T14:49:01.156+08:00  INFO 5280 --- [registry-center] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T14:49:01.157+08:00  INFO 5280 --- [registry-center] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T14:49:01.342+08:00  INFO 5280 --- [registry-center] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T14:49:01.344+08:00  INFO 5280 --- [registry-center] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5432 ms
+2025-12-29T14:49:02.933+08:00  WARN 5280 --- [registry-center] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-12-29T14:49:03.061+08:00  INFO 5280 --- [registry-center] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8848 (http) with context path '/'
+2025-12-29T14:49:03.099+08:00  INFO 5280 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : Started Application in 9.93 seconds (process running for 12.291)
+2025-12-29T14:49:04.059+08:00  INFO 5280 --- [registry-center] [http-nio-8848-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T14:49:04.066+08:00  INFO 5280 --- [registry-center] [http-nio-8848-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T14:49:04.069+08:00  INFO 5280 --- [registry-center] [http-nio-8848-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-12-29T14:55:05.773+08:00  INFO 5280 --- [registry-center] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T14:55:15.124+08:00  INFO 5280 --- [registry-center] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-29T14:55:28.746+08:00  INFO 11532 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : Starting Application using Java 17.0.11 with PID 11532 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-asac\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T14:55:28.758+08:00  INFO 11532 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T14:55:29.034+08:00  INFO 11532 --- [registry-center] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T14:55:29.035+08:00  INFO 11532 --- [registry-center] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T14:55:33.508+08:00  INFO 11532 --- [registry-center] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8848 (http)
+2025-12-29T14:55:33.570+08:00  INFO 11532 --- [registry-center] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T14:55:33.571+08:00  INFO 11532 --- [registry-center] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T14:55:33.767+08:00  INFO 11532 --- [registry-center] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T14:55:33.768+08:00  INFO 11532 --- [registry-center] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4731 ms
+2025-12-29T14:55:35.328+08:00  WARN 11532 --- [registry-center] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-12-29T14:55:35.426+08:00  INFO 11532 --- [registry-center] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8848 (http) with context path '/'
+2025-12-29T14:55:35.477+08:00  INFO 11532 --- [registry-center] [restartedMain] com.juhao666.demo.Application            : Started Application in 9.068 seconds (process running for 11.668)
+2025-12-29T14:55:35.679+08:00  INFO 11532 --- [registry-center] [http-nio-8848-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T14:55:35.680+08:00  INFO 11532 --- [registry-center] [http-nio-8848-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T14:55:35.683+08:00  INFO 11532 --- [registry-center] [http-nio-8848-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-29T20:09:37.517+08:00  INFO 11532 --- [registry-center] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T20:09:38.217+08:00  INFO 11532 --- [registry-center] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

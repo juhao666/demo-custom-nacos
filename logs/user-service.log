@@ -1,0 +1,128 @@
+2025-12-29T14:14:07.337+08:00  INFO 11652 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Starting UserServiceApplication using Java 17.0.11 with PID 11652 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-user-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T14:14:07.388+08:00  INFO 11652 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T14:14:07.650+08:00  INFO 11652 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T14:14:07.651+08:00  INFO 11652 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T14:14:11.363+08:00  INFO 11652 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8001 (http)
+2025-12-29T14:14:11.403+08:00  INFO 11652 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T14:14:11.404+08:00  INFO 11652 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T14:14:11.529+08:00  INFO 11652 --- [demo-user-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T14:14:11.530+08:00  INFO 11652 --- [demo-user-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3876 ms
+2025-12-29T14:14:15.839+08:00  INFO 11652 --- [demo-user-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-29T14:14:16.165+08:00  INFO 11652 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8001 (http) with context path '/'
+2025-12-29T14:14:16.262+08:00  INFO 11652 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Started UserServiceApplication in 11.027 seconds (process running for 14.163)
+2025-12-29T14:17:33.885+08:00  INFO 11652 --- [demo-user-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T14:17:34.470+08:00  INFO 11652 --- [demo-user-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-29T14:17:41.724+08:00  INFO 3576 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Starting UserServiceApplication using Java 17.0.11 with PID 3576 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-user-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T14:17:41.734+08:00  INFO 3576 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T14:17:41.925+08:00  INFO 3576 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T14:17:41.926+08:00  INFO 3576 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T14:17:45.141+08:00  INFO 3576 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8001 (http)
+2025-12-29T14:17:45.179+08:00  INFO 3576 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T14:17:45.180+08:00  INFO 3576 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T14:17:45.295+08:00  INFO 3576 --- [demo-user-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T14:17:45.295+08:00  INFO 3576 --- [demo-user-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3368 ms
+2025-12-29T14:17:46.752+08:00  INFO 3576 --- [demo-user-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-29T14:17:46.850+08:00  INFO 3576 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8001 (http) with context path '/'
+2025-12-29T14:17:46.880+08:00  INFO 3576 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Started UserServiceApplication in 7.218 seconds (process running for 8.807)
+2025-12-29T14:25:27.776+08:00  INFO 3576 --- [demo-user-service] [http-nio-8001-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T14:25:27.777+08:00  INFO 3576 --- [demo-user-service] [http-nio-8001-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T14:25:27.779+08:00  INFO 3576 --- [demo-user-service] [http-nio-8001-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-12-29T15:55:58.416+08:00  INFO 3576 --- [demo-user-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T15:55:58.987+08:00  INFO 3576 --- [demo-user-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-29T15:56:10.365+08:00  INFO 17452 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Starting UserServiceApplication using Java 17.0.11 with PID 17452 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-user-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T15:56:10.378+08:00  INFO 17452 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T15:56:10.827+08:00  INFO 17452 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T15:56:10.828+08:00  INFO 17452 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T15:56:14.173+08:00  INFO 17452 --- [demo-user-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=578d35f2-451b-35f1-b5f5-a66ece428e55
+2025-12-29T15:56:16.226+08:00  INFO 17452 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8001 (http)
+2025-12-29T15:56:16.269+08:00  INFO 17452 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T15:56:16.270+08:00  INFO 17452 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T15:56:16.454+08:00  INFO 17452 --- [demo-user-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T15:56:16.456+08:00  INFO 17452 --- [demo-user-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5624 ms
+2025-12-29T15:56:18.929+08:00  INFO 17452 --- [demo-user-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-29T15:56:19.100+08:00  INFO 17452 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8001 (http) with context path '/'
+2025-12-29T15:56:19.173+08:00  INFO 17452 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Started UserServiceApplication in 11.461 seconds (process running for 13.995)
+2025-12-29T15:58:32.033+08:00  INFO 17452 --- [demo-user-service] [http-nio-8001-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T15:58:32.034+08:00  INFO 17452 --- [demo-user-service] [http-nio-8001-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T15:58:32.038+08:00  INFO 17452 --- [demo-user-service] [http-nio-8001-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-12-29T16:29:15.672+08:00  INFO 17452 --- [demo-user-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T16:29:16.263+08:00  INFO 17452 --- [demo-user-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-29T16:29:25.292+08:00  INFO 23140 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Starting UserServiceApplication using Java 17.0.11 with PID 23140 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-user-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T16:29:25.299+08:00  INFO 23140 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T16:29:25.489+08:00  INFO 23140 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:29:25.490+08:00  INFO 23140 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T16:29:27.787+08:00  INFO 23140 --- [demo-user-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=578d35f2-451b-35f1-b5f5-a66ece428e55
+2025-12-29T16:29:29.268+08:00  INFO 23140 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8001 (http)
+2025-12-29T16:29:29.309+08:00  INFO 23140 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T16:29:29.310+08:00  INFO 23140 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T16:29:29.460+08:00  INFO 23140 --- [demo-user-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T16:29:29.461+08:00  INFO 23140 --- [demo-user-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3969 ms
+2025-12-29T16:29:31.102+08:00  INFO 23140 --- [demo-user-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-29T16:29:31.216+08:00  INFO 23140 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8001 (http) with context path '/'
+2025-12-29T16:29:31.263+08:00  INFO 23140 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Started UserServiceApplication in 7.987 seconds (process running for 10.057)
+2025-12-29T16:30:00.491+08:00  INFO 23140 --- [demo-user-service] [Config-Listener-Thread] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:31:18.568+08:00  INFO 23140 --- [demo-user-service] [http-nio-8001-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T16:31:18.568+08:00  INFO 23140 --- [demo-user-service] [http-nio-8001-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T16:31:18.570+08:00  INFO 23140 --- [demo-user-service] [http-nio-8001-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-29T16:32:03.466+08:00  INFO 23140 --- [demo-user-service] [Config-Listener-Thread] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:34:45.453+08:00  INFO 23140 --- [demo-user-service] [Config-Listener-Thread] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:35:23.311+08:00  INFO 23140 --- [demo-user-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T16:35:23.892+08:00  INFO 23140 --- [demo-user-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-29T16:36:02.375+08:00  INFO 18704 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Starting UserServiceApplication using Java 17.0.11 with PID 18704 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-user-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T16:36:02.393+08:00  INFO 18704 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T16:36:02.800+08:00  INFO 18704 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:36:02.801+08:00  INFO 18704 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T16:36:05.939+08:00  INFO 18704 --- [demo-user-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=578d35f2-451b-35f1-b5f5-a66ece428e55
+2025-12-29T16:36:07.081+08:00  INFO 18704 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8001 (http)
+2025-12-29T16:36:07.114+08:00  INFO 18704 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T16:36:07.114+08:00  INFO 18704 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T16:36:07.223+08:00  INFO 18704 --- [demo-user-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T16:36:07.224+08:00  INFO 18704 --- [demo-user-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4421 ms
+2025-12-29T16:36:08.919+08:00  INFO 18704 --- [demo-user-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-29T16:36:09.028+08:00  INFO 18704 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8001 (http) with context path '/'
+2025-12-29T16:36:09.072+08:00  INFO 18704 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Started UserServiceApplication in 9.168 seconds (process running for 11.341)
+2025-12-29T16:36:42.197+08:00  INFO 18704 --- [demo-user-service] [Config-Listener-Thread] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:37:22.102+08:00  INFO 18704 --- [demo-user-service] [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T16:37:22.103+08:00  INFO 18704 --- [demo-user-service] [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T16:37:22.104+08:00  INFO 18704 --- [demo-user-service] [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-29T16:37:48.745+08:00  INFO 18704 --- [demo-user-service] [Config-Listener-Thread] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:42:23.592+08:00  INFO 18704 --- [demo-user-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T16:42:24.134+08:00  INFO 18704 --- [demo-user-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-29T16:42:31.886+08:00  INFO 14396 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Starting UserServiceApplication using Java 17.0.11 with PID 14396 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-user-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T16:42:31.897+08:00  INFO 14396 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T16:42:32.127+08:00  INFO 14396 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:42:32.128+08:00  INFO 14396 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T16:42:34.435+08:00  INFO 14396 --- [demo-user-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=578d35f2-451b-35f1-b5f5-a66ece428e55
+2025-12-29T16:42:35.605+08:00  INFO 14396 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8001 (http)
+2025-12-29T16:42:35.644+08:00  INFO 14396 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T16:42:35.644+08:00  INFO 14396 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T16:42:35.773+08:00  INFO 14396 --- [demo-user-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T16:42:35.774+08:00  INFO 14396 --- [demo-user-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3643 ms
+2025-12-29T16:42:37.436+08:00  INFO 14396 --- [demo-user-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-29T16:42:37.544+08:00  INFO 14396 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8001 (http) with context path '/'
+2025-12-29T16:42:37.592+08:00  INFO 14396 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Started UserServiceApplication in 7.845 seconds (process running for 9.337)
+2025-12-29T16:43:07.481+08:00  INFO 14396 --- [demo-user-service] [Config-Listener-Thread] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:43:37.074+08:00  INFO 14396 --- [demo-user-service] [http-nio-8001-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T16:43:37.074+08:00  INFO 14396 --- [demo-user-service] [http-nio-8001-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T16:43:37.075+08:00  INFO 14396 --- [demo-user-service] [http-nio-8001-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-29T16:44:23.379+08:00  INFO 14396 --- [demo-user-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T16:44:24.037+08:00  INFO 14396 --- [demo-user-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-29T16:44:32.789+08:00  INFO 18384 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Starting UserServiceApplication using Java 17.0.11 with PID 18384 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-user-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-29T16:44:32.798+08:00  INFO 18384 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-12-29T16:44:32.989+08:00  INFO 18384 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T16:44:32.990+08:00  INFO 18384 --- [demo-user-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-29T16:44:35.181+08:00  INFO 18384 --- [demo-user-service] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=578d35f2-451b-35f1-b5f5-a66ece428e55
+2025-12-29T16:44:36.369+08:00  INFO 18384 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8001 (http)
+2025-12-29T16:44:36.408+08:00  INFO 18384 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-29T16:44:36.410+08:00  INFO 18384 --- [demo-user-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-29T16:44:36.557+08:00  INFO 18384 --- [demo-user-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-29T16:44:36.558+08:00  INFO 18384 --- [demo-user-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3565 ms
+2025-12-29T16:44:38.095+08:00  INFO 18384 --- [demo-user-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-29T16:44:38.196+08:00  INFO 18384 --- [demo-user-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8001 (http) with context path '/'
+2025-12-29T16:44:38.230+08:00  INFO 18384 --- [demo-user-service] [restartedMain] c.j.demo.user.UserServiceApplication     : Started UserServiceApplication in 7.408 seconds (process running for 9.398)
+2025-12-29T16:45:34.646+08:00  INFO 18384 --- [demo-user-service] [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-29T16:45:34.646+08:00  INFO 18384 --- [demo-user-service] [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-29T16:45:34.648+08:00  INFO 18384 --- [demo-user-service] [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-29T16:45:37.494+08:00  INFO 18384 --- [demo-user-service] [Config-Listener-Thread] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-29T20:09:36.327+08:00  INFO 18384 --- [demo-user-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-29T20:09:36.898+08:00  INFO 18384 --- [demo-user-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

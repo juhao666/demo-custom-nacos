@@ -1,0 +1,50 @@
+server:
+  port: 8848
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: registry-center
+
+  # 启用内嵌Tomcat的访问日志
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+# 自定义注册中心配置
+custom:
+  registry:
+    server-addr: localhost:8848
+    # 健康检查配置
+    health-check:
+      enabled: true
+      interval: 10000  # 10秒检查一次
+      timeout: 30000   # 30秒无心跳视为不健康
+    # 配置中心配置
+    config:
+      enabled: true
+      long-poll-timeout: 30000  # 长轮询超时时间30秒
+      refresh-interval: 1000    # 配置刷新间隔1秒
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.example: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/registry-center.log
+    max-size: 10MB
+    max-history: 30
+
+# 管理端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always

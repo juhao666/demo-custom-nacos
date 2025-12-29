@@ -1,0 +1,36 @@
+server:
+  port: 8003
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: order-service
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+# 注册中心配置
+registry:
+  server:
+    addr: localhost:8848
+  instance:
+    service-name: order-service
+    instance-id: order-service-001
+    ip: localhost
+    port: 8003
+  heartbeat:
+    interval: 5000  # 5秒发送一次心跳
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.example: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [order-service] %-5level - %msg%n"
+  file:
+    name: logs/order-service.log
+    max-size: 10MB
+    max-history: 7

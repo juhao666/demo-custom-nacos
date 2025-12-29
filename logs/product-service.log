@@ -1,0 +1,71 @@
+2025-12-27T11:52:28.083+08:00  INFO 7944 --- [product-service] [restartedMain] c.j.d.product.ProductServiceApplication  : Starting ProductServiceApplication using Java 17.0.11 with PID 7944 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-product-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-27T11:52:28.148+08:00  INFO 7944 --- [product-service] [restartedMain] c.j.d.product.ProductServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-12-27T11:52:28.457+08:00  INFO 7944 --- [product-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-27T11:52:28.478+08:00  INFO 7944 --- [product-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-27T11:52:32.133+08:00  INFO 7944 --- [product-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8002 (http)
+2025-12-27T11:52:32.177+08:00  INFO 7944 --- [product-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-27T11:52:32.178+08:00  INFO 7944 --- [product-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-27T11:52:32.287+08:00  INFO 7944 --- [product-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-27T11:52:32.288+08:00  INFO 7944 --- [product-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3808 ms
+2025-12-27T11:52:33.572+08:00  WARN 7944 --- [product-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-12-27T11:52:33.707+08:00  INFO 7944 --- [product-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8002 (http) with context path '/'
+2025-12-27T11:52:33.745+08:00  INFO 7944 --- [product-service] [restartedMain] c.j.d.product.ProductServiceApplication  : Started ProductServiceApplication in 8.192 seconds (process running for 9.532)
+2025-12-27T13:26:52.560+08:00  INFO 7944 --- [product-service] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 4 deletions, 0 modifications)
+2025-12-27T13:26:52.572+08:00  INFO 7944 --- [product-service] [Thread-1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-27T13:26:54.414+08:00  INFO 7944 --- [product-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-12-27T13:26:54.807+08:00  INFO 7944 --- [product-service] [restartedMain] c.j.d.product.ProductServiceApplication  : Starting ProductServiceApplication using Java 17.0.11 with PID 7944 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-product-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-27T13:26:54.809+08:00  INFO 7944 --- [product-service] [restartedMain] c.j.d.product.ProductServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-12-27T13:26:54.837+08:00  WARN 7944 --- [product-service] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanDefinitionStoreException: I/O failure while processing configuration class [com.juhao666.demo.product.ProductServiceApplication]
+2025-12-27T13:26:54.949+08:00 ERROR 7944 --- [product-service] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanDefinitionStoreException: I/O failure while processing configuration class [com.juhao666.demo.product.ProductServiceApplication]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:286) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:204) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:172) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:418) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:290) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:791) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:609) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+	at com.juhao666.demo.product.ProductServiceApplication.main(ProductServiceApplication.java:42) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+Caused by: java.io.FileNotFoundException: class path resource [com/juhao666/demo/product/ProductServiceApplication.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:215) ~[spring-core-6.2.15.jar:6.2.15]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.getClassReader(SimpleMetadataReader.java:54) ~[spring-core-6.2.15.jar:6.2.15]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:48) ~[spring-core-6.2.15.jar:6.2.15]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103) ~[spring-core-6.2.15.jar:6.2.15]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.createMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:98) ~[spring-boot-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:85) ~[spring-boot-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:81) ~[spring-core-6.2.15.jar:6.2.15]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:75) ~[spring-boot-3.5.10-20251226.092839-3.jar:3.5.10-SNAPSHOT]
+	at org.springframework.context.annotation.ConfigurationClassParser$SourceClass.getMemberClasses(ConfigurationClassParser.java:1020) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.processMemberClasses(ConfigurationClassParser.java:410) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.doProcessConfigurationClass(ConfigurationClassParser.java:308) ~[spring-context-6.2.15.jar:6.2.15]
+	at org.springframework.context.annotation.ConfigurationClassParser.processConfigurationClass(ConfigurationClassParser.java:281) ~[spring-context-6.2.15.jar:6.2.15]
+	... 20 common frames omitted
+
+2025-12-27T13:36:58.563+08:00  INFO 19140 --- [product-service] [restartedMain] c.j.d.product.ProductServiceApplication  : Starting ProductServiceApplication using Java 17.0.11 with PID 19140 (C:\ErikWorkSpace\2codes\Java\demo-custom-nacos\demo-product-service\target\classes started by Erik in C:\ErikWorkSpace\2codes\Java\demo-custom-nacos)
+2025-12-27T13:36:58.571+08:00  INFO 19140 --- [product-service] [restartedMain] c.j.d.product.ProductServiceApplication  : No active profile set, falling back to 1 default profile: "default"
+2025-12-27T13:36:58.784+08:00  INFO 19140 --- [product-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-27T13:36:58.784+08:00  INFO 19140 --- [product-service] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-27T13:37:02.111+08:00  INFO 19140 --- [product-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8002 (http)
+2025-12-27T13:37:02.150+08:00  INFO 19140 --- [product-service] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-27T13:37:02.151+08:00  INFO 19140 --- [product-service] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.50]
+2025-12-27T13:37:02.309+08:00  INFO 19140 --- [product-service] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-27T13:37:02.310+08:00  INFO 19140 --- [product-service] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3524 ms
+2025-12-27T13:37:03.552+08:00  WARN 19140 --- [product-service] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-12-27T13:37:03.653+08:00  INFO 19140 --- [product-service] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8002 (http) with context path '/'
+2025-12-27T13:37:03.691+08:00  INFO 19140 --- [product-service] [restartedMain] c.j.d.product.ProductServiceApplication  : Started ProductServiceApplication in 7.175 seconds (process running for 8.691)
+2025-12-27T13:46:48.321+08:00  INFO 19140 --- [product-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-27T13:46:49.497+08:00  INFO 19140 --- [product-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
