@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配置中心与服务管理</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            text-align: center;
+        }
+        .main {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 200px;
+            padding: 20px;
+            border-right: 1px solid #dee2e6;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar button {
+            margin-bottom: 10px;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .list-group-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>配置中心与服务管理</h1>
+    </div>
+    <div class="main">
+        <div class="sidebar">
+            <button class="btn btn-link" onclick="showServiceManagement()">服务管理</button>
+            <button class="btn btn-link" onclick="showConfigCenter()">配置中心</button>
+        </div>
+        <div class="content" id="contentArea">
+            <h2>欢迎使用配置中心与服务管理</h2>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showConfigCenter() {
+        const contentArea = $('#contentArea');
+        contentArea.empty();
+        contentArea.append(`
+            <h2>配置列表</h2>
+            <button class="btn btn-primary mb-3" onclick="createOrEditConfig()">创建/修改配置</button>
+            <div id="configList" class="list-group"></div>
+        `);
+        loadConfigList(); // 直接加载配置列表
+    }
+
+    function loadConfigList() {
+        $.get('/api/v1/config', function(data) {
+            const configList = $('#configList');
+            configList.empty(); // 清空之前的内容
+            if (data.success) {
+                const config = data.data; // 直接获取配置
+                configList.append(`
+                    <div class="list-group-item">
+                        <strong>Data ID:</strong> ${config.dataId} <br>
+                        <strong>Group:</strong> ${config.group} <br>
+                        <button class="btn btn-secondary" onclick="editConfig('${config.dataId}', '${config.group}')">编辑</button>
+                    </div>
+                `);
+            } else {
+                alert(data.message);
+            }
+        }).fail(function() {
+            alert('加载配置失败');
+        });
+    }
+
+    function createOrEditConfig() {
+        const contentArea = $('#contentArea');
+        contentArea.empty();
+        contentArea.append(`
+            <h2>配置编辑器</h2>
+            <form id="configForm">
+                <div class="form-group">
+                    <label for="dataId">Data ID</label>
+                    <input type="text" id="dataId" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="group">Group</label>
+                    <input type="text" id="group" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">配置内容</label>
+                    <textarea id="content" class="form-control" rows="5" required></textarea>
+                </div>
+                <button type="button" class="btn btn-success" onclick="saveConfig()">保存配置</button>
+            </form>
+        `);
+    }
+
+    function editConfig(dataId, group) {
+        // 加载现有配置以供编辑
+        $.get(`/api/v1/config?dataId=${dataId}&group=${group}`, function(data) {
+            if (data.success) {
+                const config = data.data;
+                $('#dataId').val(config.dataId);
+                $('#group').val(config.group);
+                $('#content').val(config.content);
+            } else {
+                alert(data.message);
+            }
+        }).fail(function() {
+            alert('加载配置失败');
+        });
+    }
+
+    function saveConfig() {
+        const dataId = $('#dataId').val();
+        const group = $('#group').val();
+        const content = $('#content').val();
+
+        const configItem = {
+            dataId: dataId,
+            group: group,
+            content: content
+        };
+
+        $.ajax({
+            url: '/api/v1/config',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(configItem),
+            success: function(data) {
+                if (data.success) {
+                    alert('配置已保存！');
+                    showConfigCenter(); // 保存后返回配置列表
+                } else {
+                    alert(data.message);
+                }
+            },
+            error: function() {
+                alert('保存配置失败');
+            }
+        });
+    }
+
+    function showServiceManagement() {
+        const contentArea = $('#contentArea');
+        contentArea.empty();
+        contentArea.append(`
+            <h2>服务管理</h2>
+            <button class="btn btn-primary mb-3" onclick="loadServices()">加载所有服务</button>
+            <div id="serviceList" class="list-group"></div>
+        `);
+        loadServices(); // 直接加载服务列表
+    }
+
+    function loadServices() {
+        $.get('/api/v1/instance/all', function(data) {
+            if (data.success) {
+                const services = data.data.services;
+                const serviceList = $('#serviceList');
+                serviceList.empty(); // 清空之前的内容
+
+                for (const [serviceName, instances] of Object.entries(services)) {
+                    const serviceItem = $('<div class="list-group-item"></div>');
+                    serviceItem.append(`<h5>${serviceName}</h5>`);
+
+                    const instanceList = $('<ul class="list-group"></ul>');
+                    instances.forEach(instance => {
+                        instanceList.append(`
+                            <li class="list-group-item">
+                                <strong>实例 ID:</strong> ${instance.instanceId} <br>
+                                <strong>地址:</strong> ${instance.host}:${instance.port} <br>
+                                <strong>健康状态:</strong> ${instance.healthy ? '健康' : '不健康'} <br>
+                            </li>
+                        `);
+                    });
+                    serviceItem.append(instanceList);
+                    serviceList.append(serviceItem);
+                }
+            } else {
+                alert(data.message);
+            }
+        }).fail(function() {
+            alert('加载服务失败');
+        });
+    }
+</script>
+</body>
+</html>
