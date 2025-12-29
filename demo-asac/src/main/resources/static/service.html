@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务发现</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h1>服务发现</h1>
+    <button class="btn btn-primary mb-3" onclick="loadServices()">加载所有服务</button>
+    <div id="serviceList" class="list-group"></div>
+</div>
+
+<script>
+    function loadServices() {
+        $.get('/api/v1/instance/all', function(data) {
+            if (data.success) {
+                const services = data.data.services;
+                const serviceList = $('#serviceList');
+                serviceList.empty(); // 清空之前的内容
+
+                for (const [serviceName, instances] of Object.entries(services)) {
+                    const serviceItem = $('<div class="list-group-item"></div>');
+                    serviceItem.append(`<h5>${serviceName}</h5>`);
+
+                    const instanceList = $('<ul class="list-group"></ul>');
+                    instances.forEach(instance => {
+                        instanceList.append(`
+                            <li class="list-group-item">
+                                <strong>实例 ID:</strong> ${instance.instanceId} <br>
+                                <strong>地址:</strong> ${instance.host}:${instance.port} <br>
+                                <strong>健康状态:</strong> ${instance.healthy ? '健康' : '不健康'} <br>
+                            </li>
+                        `);
+                    });
+                    serviceItem.append(instanceList);
+                    serviceList.append(serviceItem);
+                }
+            } else {
+                alert(data.message);
+            }
+        }).fail(function() {
+            alert('加载服务失败');
+        });
+    }
+</script>
+</body>
+</html>
