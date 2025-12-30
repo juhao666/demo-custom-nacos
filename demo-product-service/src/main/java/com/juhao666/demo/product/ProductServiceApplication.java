@@ -1,10 +1,14 @@
 package com.juhao666.demo.product;
 
+import com.juhao666.asac.annotation.EnableAsAc;
+import com.juhao666.asac.service.RegistrationService;
 import com.juhao666.demo.product.model.Result;
 import com.juhao666.demo.product.model.ServiceInstance;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
@@ -18,16 +22,18 @@ import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableScheduling
+//@ComponentScan({"com.juhao666.asac", "com.juhao666.demo"})
+@EnableAsAc
 public class ProductServiceApplication {
-
-	// 注册中心地址
-	private static final String REGISTRY_URL = "http://localhost:8848/api/v1";
-
-	// 当前服务信息
-	private static final String SERVICE_NAME = "product-service";
-	private static final String INSTANCE_ID = "product-service--localhost:8002";
 	private static final int PORT = 8002;
 
+	@Autowired
+	private RegistrationService registrationService;
+
+	@PostConstruct
+	public void init() {
+		registrationService.registerToRegistry();
+	}
 
 
 	// 心跳线程池
@@ -48,59 +54,5 @@ public class ProductServiceApplication {
 	}
 
 
-
-	@EventListener(ApplicationReadyEvent.class)
-	public void registerToRegistry() {
-		System.out.println("正在注册到注册中心...");
-
-		//todo restTemplate不要这么用
-		RestTemplate restTemplate = new RestTemplate();
-
-		try {
-			Result result = restTemplate.postForObject(
-					REGISTRY_URL + "/instance/register",
-					instance(),
-					Result.class
-			);
-
-			if (result != null && result.isSuccess()) {
-				System.out.println("✅ 成功注册到注册中心");
-				startHeartbeatTask();
-			} else {
-				System.err.println("❌ 注册失败: " + (result != null ? result.getMessage() : "未知错误"));
-			}
-		} catch (Exception e) {
-			System.err.println("❌ 注册到注册中心失败: " + e.getMessage());
-		}
-	}
-
-	/**
-	 * 启动心跳任务
-	 */
-	private void startHeartbeatTask() {
-		heartbeatExecutor.scheduleAtFixedRate(() -> {
-			//todo the same as above
-			RestTemplate restTemplate = new RestTemplate();
-			try {
-				restTemplate.postForObject(
-						REGISTRY_URL + "/instance/heartbeat",
-						instance(),
-						Result.class
-				);
-			} catch (Exception e) {
-				System.err.println("心跳发送失败: " + e.getMessage());
-			}
-		}, 0, 5, TimeUnit.SECONDS);
-	}
-
-	private ServiceInstance instance() {
-		ServiceInstance instance = new ServiceInstance();
-		instance.setServiceName(SERVICE_NAME);
-		instance.setInstanceId(INSTANCE_ID);
-		instance.setIp("localhost");
-		instance.setPort(PORT);
-		instance.setStatus("UP");
-		return instance;
-	}
 }
 
