@@ -57,11 +57,11 @@ public class RegistryController {
      * 心跳上报接口
      */
     @PostMapping("/instance/heartbeat")
-    public Result heartbeat(@RequestParam String serviceName, @RequestParam String instanceId) {
+    public Result heartbeat(@RequestBody @Valid ServiceInstance instance) {
 
         try {
-            registryStore.updateHeartbeat(instanceId);
-            //System.out.printf("心跳上报成功. Service Name = %s, Instance Id = %s%n", serviceName, instanceId);
+            registryStore.updateHeartbeat(instance);
+            System.out.printf("心跳上报成功. Service Name = %s, Instance Id = %s%n", instance.getServiceName(), instance.getInstanceId());
             return Response.success("心跳上报成功", System.currentTimeMillis());
         } catch (Exception e) {
             return Response.error("心跳上报失败: " + e.getMessage());

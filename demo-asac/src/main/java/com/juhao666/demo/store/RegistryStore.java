@@ -321,9 +321,12 @@ public class RegistryStore {
     /**
      * 更新心跳时间 - 线程安全
      */
-    public void updateHeartbeat(String instanceId) {
-        if (instanceId != null) {
+    public void updateHeartbeat(ServiceInstance instance) {
+        if (instance != null) {
+            String instanceId = generateInstanceId(instance);
             heartbeatTimestamps.put(instanceId, System.currentTimeMillis());
+            //todo if required here??
+            registerInstance(instance);
             updateStatistics("heartbeat");
         }
     }
@@ -446,8 +449,8 @@ public class RegistryStore {
 
     private String generateInstanceId(ServiceInstance instance) {
         return instance.getServiceName() + "-" +
-                instance.getIp() + ":" + instance.getPort() + "-" +
-                instanceIdGenerator.getAndIncrement();
+                instance.getIp() + ":" + instance.getPort();
+                //+ "-" + instanceIdGenerator.getAndIncrement();
     }
 
     private String generateConfigKey(String dataId, String group) {

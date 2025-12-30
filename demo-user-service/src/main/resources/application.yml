@@ -10,6 +10,14 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
 
+asac:
+  enabled: true
+  registry-url: http://localhost:8848/api/v1
+  service-name: user-service
+  ip: localhost
+  port: 8001
+  heartbeat-interval: 5000
+
 # 注册中心配置
 registry:
   server:
