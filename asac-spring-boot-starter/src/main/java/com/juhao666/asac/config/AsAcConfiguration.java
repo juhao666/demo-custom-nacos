@@ -1,22 +1,26 @@
 package com.juhao666.asac.config;
 
 import com.juhao666.asac.service.RegistrationService;
+import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
+import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 
-//@Configuration
-//@EnableConfigurationProperties(AsAcProperties.class)
-//@ConditionalOnProperty(prefix = "asac", name = "enabled", havingValue = "true", matchIfMissing = true)
-//@Import(AsAcConfiguration.class)
-public class AsAcAutoConfiguration {
+@Configuration
+@EnableConfigurationProperties(AsAcProperties.class)
+public class AsAcConfiguration implements ImportBeanDefinitionRegistrar {
+
+    @Override
+    public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata,
+                                        BeanDefinitionRegistry registry) {
+        ClassPathBeanDefinitionScanner scanner = new ClassPathBeanDefinitionScanner(registry);
+        scanner.scan("com.juhao666.asac");
+    }
 
     @Bean
     @ConditionalOnMissingBean
@@ -26,8 +30,8 @@ public class AsAcAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
-    public ScheduledExecutorService heartbeatExecutor() {
-        return Executors.newSingleThreadScheduledExecutor();
+    public ScheduledExecutorService scheduledExecutorService() {
+        return Executors.newScheduledThreadPool(1);
     }
 
     @Bean
