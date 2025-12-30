@@ -28,6 +28,16 @@ public class ConfigController {
 
     // 配置监听器
     private static final Map<String, List<DeferredResult<Result>>> CONFIG_LISTENERS = new ConcurrentHashMap<>();
+    @GetMapping("/config/all")
+    public Result getAllConfigs() {
+        try {
+            List<ConfigItem> allConfigs = registryStore.getAllConfigs();
+            return Response.success("获取所有配置成功", allConfigs);
+        } catch (Exception e) {
+            return Response.error("获取所有配置失败: " + e.getMessage());
+        }
+    }
+
     /**
      * 获取配置接口
      */

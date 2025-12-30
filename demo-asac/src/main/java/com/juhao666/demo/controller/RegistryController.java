@@ -118,12 +118,12 @@ public class RegistryController {
                 }
             }
 
-            Map<String, Object> data = new HashMap<>();
-            data.put("totalServices", healthyServices.size());
-            data.put("services", healthyServices);
-            data.put("timestamp", System.currentTimeMillis());
+//            Map<String, Object> data = new HashMap<>();
+//            data.put("totalServices", healthyServices.size());
+//            data.put("services", healthyServices);
+//            data.put("timestamp", System.currentTimeMillis());
 
-            return Response.success("获取所有服务成功", data);
+            return Response.success("获取所有服务成功", healthyServices);
         } catch (Exception e) {
             return Response.error("获取所有服务失败: " + e.getMessage());
         }

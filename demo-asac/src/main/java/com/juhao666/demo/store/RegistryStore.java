@@ -101,6 +101,8 @@ public class RegistryStore {
                 existingInstance.setMetadata(instance.getMetadata());
                 heartbeatTimestamps.put(instanceId, System.currentTimeMillis());
 
+                serviceRegistry.put(serviceName, instances);
+
                 updateStatistics("update");
                 System.out.println("🔄 服务心跳更新: " + serviceName + " [" + instanceId + "]");
                 return existingInstance;
@@ -302,10 +304,13 @@ public class RegistryStore {
     /**
      * 获取所有配置 - 线程安全
      */
-    public Map<String, ConfigItem> getAllConfigs() {
+    public List<ConfigItem> getAllConfigs() {
         configLock.readLock().lock();
         try {
-            return new HashMap<>(configStore);
+            if (configStore.isEmpty()) {
+                return Collections.emptyList();
+            }
+            return new ArrayList<>(configStore.values());
         } finally {
             configLock.readLock().unlock();
         }
