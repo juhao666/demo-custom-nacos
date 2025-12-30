@@ -29,7 +29,7 @@ public class UserServiceApplication {
 
     // 当前服务信息
     private static final String SERVICE_NAME = "user-service";
-    private static final String INSTANCE_ID = "user-service-001";
+    private static final String INSTANCE_ID = "user-service-localhost:8001"; //order-service-localhost:8003-3
     private static final int PORT = 8001;
 
     //todo 支持配置变更坚挺的代码
@@ -77,17 +77,11 @@ public class UserServiceApplication {
         System.out.println("正在注册到注册中心...");
 
         RestTemplate restTemplate = new RestTemplate();
-        ServiceInstance instance = new ServiceInstance();
-        instance.setServiceName(SERVICE_NAME);
-        instance.setInstanceId(INSTANCE_ID);
-        instance.setIp("localhost");
-        instance.setPort(PORT);
-        instance.setStatus("UP");
 
         try {
             Result result = restTemplate.postForObject(
                     REGISTRY_URL + "/instance/register",
-                    instance,
+                    instance(),
                     Result.class
             );
 
@@ -115,9 +109,8 @@ public class UserServiceApplication {
             RestTemplate restTemplate = new RestTemplate();
             try {
                 restTemplate.postForObject(
-                        REGISTRY_URL + "/instance/heartbeat?serviceName=" + SERVICE_NAME +
-                                "&instanceId=" + INSTANCE_ID,
-                        null,
+                        REGISTRY_URL + "/instance/heartbeat",
+                        instance(),
                         Result.class
                 );
             } catch (Exception e) {
@@ -176,7 +169,15 @@ public class UserServiceApplication {
         }
     }
 
-
+    private ServiceInstance instance() {
+        ServiceInstance instance = new ServiceInstance();
+        instance.setServiceName(SERVICE_NAME);
+        instance.setInstanceId(INSTANCE_ID);
+        instance.setIp("localhost");
+        instance.setPort(PORT);
+        instance.setStatus("UP");
+        return instance;
+    }
 
 
 }

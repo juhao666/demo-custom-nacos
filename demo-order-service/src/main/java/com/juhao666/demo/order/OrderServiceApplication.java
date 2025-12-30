@@ -2,16 +2,13 @@ package com.juhao666.demo.order;
 
 import com.juhao666.demo.order.model.Result;
 import com.juhao666.demo.order.model.ServiceInstance;
-import jakarta.annotation.PostConstruct;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +22,7 @@ public class OrderServiceApplication {
 
     // 当前服务信息
     private static final String SERVICE_NAME = "order-service";
-    private static final String INSTANCE_ID = "order-service-001";
+    private static final String INSTANCE_ID = "order-service-localhost:8003";
     private static final int PORT = 8003;
 
 
@@ -54,17 +51,11 @@ public class OrderServiceApplication {
         System.out.println("正在注册到注册中心...");
 
         RestTemplate restTemplate = new RestTemplate();
-        ServiceInstance instance = new ServiceInstance();
-        instance.setServiceName(SERVICE_NAME);
-        instance.setInstanceId(INSTANCE_ID);
-        instance.setIp("localhost");
-        instance.setPort(PORT);
-        instance.setStatus("UP");
 
         try {
             Result result = restTemplate.postForObject(
                     REGISTRY_URL + "/instance/register",
-                    instance,
+                    instance(),
                     Result.class
             );
 
@@ -87,9 +78,8 @@ public class OrderServiceApplication {
             RestTemplate restTemplate = new RestTemplate();
             try {
                 restTemplate.postForObject(
-                        REGISTRY_URL + "/instance/heartbeat?serviceName=" + SERVICE_NAME +
-                                "&instanceId=" + INSTANCE_ID,
-                        null,
+                        REGISTRY_URL + "/instance/heartbeat",
+                        instance(),
                         Result.class
                 );
             } catch (Exception e) {
@@ -99,6 +89,15 @@ public class OrderServiceApplication {
     }
 
 
+    private ServiceInstance instance() {
+        ServiceInstance instance = new ServiceInstance();
+        instance.setServiceName(SERVICE_NAME);
+        instance.setInstanceId(INSTANCE_ID);
+        instance.setIp("localhost");
+        instance.setPort(PORT);
+        instance.setStatus("UP");
+        return instance;
+    }
 
 }
 
