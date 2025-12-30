@@ -25,7 +25,7 @@ public class ProductServiceApplication {
 
 	// 当前服务信息
 	private static final String SERVICE_NAME = "product-service";
-	private static final String INSTANCE_ID = "product-service-001";
+	private static final String INSTANCE_ID = "product-service--localhost:8002";
 	private static final int PORT = 8002;
 
 
@@ -55,17 +55,11 @@ public class ProductServiceApplication {
 
 		//todo restTemplate不要这么用
 		RestTemplate restTemplate = new RestTemplate();
-		ServiceInstance instance = new ServiceInstance();
-		instance.setServiceName(SERVICE_NAME);
-		instance.setInstanceId(INSTANCE_ID);
-		instance.setIp("localhost");
-		instance.setPort(PORT);
-		instance.setStatus("UP");
 
 		try {
 			Result result = restTemplate.postForObject(
 					REGISTRY_URL + "/instance/register",
-					instance,
+					instance(),
 					Result.class
 			);
 
@@ -89,9 +83,8 @@ public class ProductServiceApplication {
 			RestTemplate restTemplate = new RestTemplate();
 			try {
 				restTemplate.postForObject(
-						REGISTRY_URL + "/instance/heartbeat?serviceName=" + SERVICE_NAME +
-								"&instanceId=" + INSTANCE_ID,
-						null,
+						REGISTRY_URL + "/instance/heartbeat",
+						instance(),
 						Result.class
 				);
 			} catch (Exception e) {
@@ -100,6 +93,14 @@ public class ProductServiceApplication {
 		}, 0, 5, TimeUnit.SECONDS);
 	}
 
-
+	private ServiceInstance instance() {
+		ServiceInstance instance = new ServiceInstance();
+		instance.setServiceName(SERVICE_NAME);
+		instance.setInstanceId(INSTANCE_ID);
+		instance.setIp("localhost");
+		instance.setPort(PORT);
+		instance.setStatus("UP");
+		return instance;
+	}
 }
 
