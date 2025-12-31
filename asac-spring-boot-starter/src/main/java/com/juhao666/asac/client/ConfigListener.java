@@ -9,14 +9,19 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.cloud.context.refresh.ContextRefresher;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.ConfigurableEnvironment;
+import org.springframework.core.env.Environment;
 import org.springframework.core.env.MapPropertySource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -30,14 +35,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
-@Component
-public class ConfigListener implements CommandLineRunner {
+public class ConfigListener implements EnvironmentAware, ApplicationListener<ApplicationReadyEvent> {
 
+    private boolean configLoaded = false;
     private final String group = "DEFAULT_GROUP";
     private final AsAcProperties asAcProperties;
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper;
-    private final ConfigurableEnvironment environment;
+    private ConfigurableEnvironment environment;
     private final ContextRefresher contextRefresher;
     private final AtomicReference<String> currentMd5 = new AtomicReference<>();
     private final ConcurrentHashMap<String, String> configProperties = new ConcurrentHashMap<>();
@@ -70,7 +75,32 @@ public class ConfigListener implements CommandLineRunner {
         return applicationName  + env + ".properties";
     }
 
-    @PostConstruct
+    // 移除@PostConstruct
+    // 新增环境感知接口实现
+    @Override
+    public void setEnvironment(Environment environment) {
+        Assert.isInstanceOf(ConfigurableEnvironment.class, environment, "ConfigurableEnvironment required");
+        this.environment = (ConfigurableEnvironment)environment;
+        loadRemoteConfig(); // 此处加载远程配置
+        configLoaded = true;
+    }
+
+    private void loadRemoteConfig() {
+        //获取远程配置中心配置并解析放入configProperties
+        fetchInitialConfig();
+        //更新到本地environment
+        refreshConfigProperties();
+    }
+
+    // 新增事件监听
+    @Override
+    public void onApplicationEvent(ApplicationReadyEvent event) {
+        if (!configLoaded) {
+            throw new IllegalStateException("远程配置未成功加载，应用启动终止");
+        }
+        startListening(); // 应用完全就绪后启动监听
+    }
+    //@PostConstruct//触发时机：Bean 依赖注入完成后立即执行
     public void init() {
         System.out.println("🚀 配置监听器初始化...");
         // 初始化时获取配置
@@ -312,7 +342,7 @@ public class ConfigListener implements CommandLineRunner {
     }
 
 
-    @Override
+    //@Override
     public void run(String... args) {
         System.out.println("==========================================");
         System.out.println("Spring Boot 配置监听客户端启动完成");
@@ -324,4 +354,5 @@ public class ConfigListener implements CommandLineRunner {
         });
         System.out.println("==========================================");
     }
+
 }
