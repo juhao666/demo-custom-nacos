@@ -1,13 +1,9 @@
 package com.juhao666.demo.user.controller;
 
-import com.juhao666.demo.user.model.Response;
-import com.juhao666.demo.user.model.Result;
-import com.juhao666.demo.user.model.ServiceInstance;
-import org.springframework.web.bind.annotation.GetMapping;
+import com.juhao666.asac.model.Response;
+import com.juhao666.asac.model.Result;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")

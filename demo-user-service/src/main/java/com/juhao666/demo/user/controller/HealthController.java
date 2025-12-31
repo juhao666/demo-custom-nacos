@@ -1,5 +1,7 @@
 package com.juhao666.demo.user.controller;
 
+import com.juhao666.asac.model.Response;
+import com.juhao666.asac.model.Result;
 import com.juhao666.demo.user.model.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

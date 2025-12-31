@@ -28,8 +28,10 @@ import java.util.concurrent.atomic.AtomicReference;
 @Component
 public class ConfigListener implements CommandLineRunner {
 
-    private final RestTemplate restTemplate = new RestTemplate();
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    private RestTemplate restTemplate;
+    @Autowired
+    private ObjectMapper objectMapper;
     private final AtomicReference<String> currentMd5 = new AtomicReference<>();
     private final ConcurrentHashMap<String, String> configProperties = new ConcurrentHashMap<>();
     private volatile boolean listening = false;

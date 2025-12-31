@@ -2,20 +2,10 @@ package com.juhao666.demo.order;
 
 import com.juhao666.asac.annotation.EnableAsAc;
 import com.juhao666.asac.service.RegistrationService;
-import com.juhao666.demo.order.model.Result;
-import com.juhao666.demo.order.model.ServiceInstance;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.event.EventListener;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.web.client.RestTemplate;
-
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableAsAc

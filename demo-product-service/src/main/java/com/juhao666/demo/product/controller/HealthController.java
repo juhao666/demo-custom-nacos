@@ -1,7 +1,7 @@
 package com.juhao666.demo.product.controller;
 
-import com.juhao666.demo.product.model.Response;
-import com.juhao666.demo.product.model.Result;
+import com.juhao666.asac.model.Response;
+import com.juhao666.asac.model.Result;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

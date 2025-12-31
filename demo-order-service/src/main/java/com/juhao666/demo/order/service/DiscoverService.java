@@ -1,8 +1,8 @@
 package com.juhao666.demo.order.service;
 
-import com.juhao666.demo.order.model.Response;
-import com.juhao666.demo.order.model.Result;
-import com.juhao666.demo.order.model.ServiceInstance;
+import com.juhao666.asac.model.Response;
+import com.juhao666.asac.model.Result;
+import com.juhao666.asac.model.ServiceInstance;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 

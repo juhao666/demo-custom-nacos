@@ -1,8 +1,8 @@
 package com.juhao666.demo.product.service;
 
-import com.juhao666.demo.product.Application;
-import com.juhao666.demo.product.model.Result;
-import com.juhao666.demo.product.model.ServiceInstance;
+import com.juhao666.asac.model.Response;
+import com.juhao666.asac.model.Result;
+import com.juhao666.asac.model.ServiceInstance;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -47,12 +47,12 @@ public class DiscoverService {
                     }
 
                     serviceCache.put("user-service", instances);
-                    return Result.success("发现用户服务成功", instances);
+                    return Response.success("发现用户服务成功", instances);
                 }
             }
-            return Result.error("用户服务不可用");
+            return Response.error("用户服务不可用");
         } catch (Exception e) {
-            return Result.error("发现用户服务失败: " + e.getMessage());
+            return Response.error("发现用户服务失败: " + e.getMessage());
         }
     }
 }

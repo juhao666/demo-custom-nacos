@@ -1,13 +1,12 @@
 package com.juhao666.demo.user.controller;
 
-import com.juhao666.demo.user.UserServiceApplication;
-import com.juhao666.demo.user.model.Result;
+import com.juhao666.asac.model.Response;
+import com.juhao666.asac.model.Result;
 import com.juhao666.demo.user.model.User;
 import com.juhao666.demo.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -20,21 +19,21 @@ public class UserController {
     @GetMapping("/users")
     public Result getAllUsers() {
         List<User> users = userService.getAllUsers();
-        return Result.success("获取用户列表成功", users);
+        return Response.success("获取用户列表成功", users);
     }
 
     @GetMapping("/users/{id}")
     public Result getUserById(@PathVariable Long id) {
         User user = userService.getUserById(id);
         if (user == null) {
-            return Result.error("用户不存在");
+            return Response.error("用户不存在");
         }
-        return Result.success("获取用户成功", user);
+        return Response.success("获取用户成功", user);
     }
 
     @PostMapping("/users")
     public Result createUser(@RequestBody User user) {
         User createdUser = userService.createUser(user);
-        return Result.success("创建用户成功", createdUser);
+        return Response.success("创建用户成功", createdUser);
     }
 }

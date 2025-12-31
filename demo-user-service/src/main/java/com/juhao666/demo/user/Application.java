@@ -25,6 +25,7 @@ import java.util.concurrent.TimeUnit;
 //@RequestMapping("/api")
 public class Application {
 
+
     // 注册中心地址
     private static final String REGISTRY_URL = "http://localhost:8848/api/v1";
 

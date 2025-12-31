@@ -1,4 +1,4 @@
-package com.juhao666.demo.user.model;
+package com.juhao666.asac.model;
 
 public class Response {
     public static Result success(String message) {

@@ -1,7 +1,7 @@
 package com.juhao666.demo.product.service;
 
+import com.juhao666.asac.model.ServiceInstance;
 import com.juhao666.demo.product.model.Product;
-import com.juhao666.demo.product.model.ServiceInstance;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
 

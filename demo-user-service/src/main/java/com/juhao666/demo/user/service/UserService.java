@@ -1,6 +1,6 @@
 package com.juhao666.demo.user.service;
 
-import com.juhao666.demo.user.model.ServiceInstance;
+import com.juhao666.asac.model.ServiceInstance;
 import com.juhao666.demo.user.model.User;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Service;
