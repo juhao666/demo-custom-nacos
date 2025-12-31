@@ -1,7 +1,7 @@
 package com.juhao666.demo.user;
 
 import com.juhao666.asac.annotation.EnableAsAc;
-import com.juhao666.asac.service.RegistrationService;
+import com.juhao666.asac.client.RegistrationService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

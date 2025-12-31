@@ -1,4 +1,4 @@
-package com.juhao666.asac.service;
+package com.juhao666.asac.client;
 
 import com.juhao666.asac.config.AsAcProperties;
 import com.juhao666.asac.model.Result;

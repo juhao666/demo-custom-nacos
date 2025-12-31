@@ -1,7 +1,10 @@
-package com.juhao666.demo.user.listener;
+package com.juhao666.asac.client;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.juhao666.asac.config.AsAcProperties;
+import io.micrometer.common.util.StringUtils;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,44 +12,63 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.cloud.context.refresh.ContextRefresher;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.MapPropertySource;
-import org.springframework.stereotype.Component;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.Properties;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
-
-//@Component
+@Component
 public class ConfigListener implements CommandLineRunner {
 
-    @Autowired
-    private RestTemplate restTemplate;
-    @Autowired
-    private ObjectMapper objectMapper;
+    private final String group = "DEFAULT_GROUP";
+    private final AsAcProperties asAcProperties;
+    private final RestTemplate restTemplate;
+    private final ObjectMapper objectMapper;
+    private final ConfigurableEnvironment environment;
+    private final ContextRefresher contextRefresher;
     private final AtomicReference<String> currentMd5 = new AtomicReference<>();
     private final ConcurrentHashMap<String, String> configProperties = new ConcurrentHashMap<>();
     private volatile boolean listening = false;
     private Thread listenerThread;
 
+    public ConfigListener(
+            AsAcProperties asAcProperties,
+            RestTemplate restTemplate,
+            ObjectMapper objectMapper,
+            ConfigurableEnvironment environment,
+            ContextRefresher contextRefresher) {
 
-    // 注册中心地址
-    private final String registryUrl = "http://localhost:8848";
+        this.asAcProperties = asAcProperties;
+        this.restTemplate = restTemplate;
+        this.objectMapper = objectMapper;
+        this.environment = environment;
+        this.contextRefresher = contextRefresher;
+    }
 
-    // 监听的配置
-    //todo dataID should be configured
-    //by default,  [spring.application.name].yml or properties
-    private final String dataId = "application.properties";
-    private final String group = "DEFAULT_GROUP";
+    // DataId: [application.name]-[env].[yaml|yml|properties]
+    private String getDataId() {
+        String applicationName = environment.getProperty("spring.application.name");
+        String activeProfile = environment.getProperty("spring.profiles.active");
 
+        if (applicationName == null) {
+            throw new IllegalStateException("spring.application.name is not configured");
+        }
+        String env = StringUtils.isNotBlank(activeProfile) ? "-" + activeProfile : "";
+        return applicationName  + env + ".properties";
+    }
 
     @PostConstruct
     public void init() {
@@ -78,9 +100,9 @@ public class ConfigListener implements CommandLineRunner {
      */
     private void fetchInitialConfig() {
         try {
-            String url = UriComponentsBuilder.fromHttpUrl(registryUrl)
-                    .path("/api/v1/config")
-                    .queryParam("dataId", dataId)
+            String url = UriComponentsBuilder.fromHttpUrl(asAcProperties.getRegistryUrl())
+                    .path("/config")
+                    .queryParam("dataId", getDataId())
                     .queryParam("group", group)
                     .toUriString();
 
@@ -142,9 +164,9 @@ public class ConfigListener implements CommandLineRunner {
      * 长轮询配置变更
      */
     private void longPolling() {
-        String url = UriComponentsBuilder.fromHttpUrl(registryUrl)
-                .path("/api/v1/config/listener")
-                .queryParam("dataId", dataId)
+        String url = UriComponentsBuilder.fromHttpUrl(asAcProperties.getRegistryUrl())
+                .path("/config/listener")
+                .queryParam("dataId", getDataId())
                 .queryParam("group", group)
                 .queryParam("md5", currentMd5.get())
                 .toUriString();
@@ -252,8 +274,6 @@ public class ConfigListener implements CommandLineRunner {
         refresh();//*** refresh bean with changed properties
     }
 
-    @Autowired
-    private ConfigurableEnvironment environment;
     private void refreshConfigProperties() {
         // 移除旧的 property source（如果存在）
         environment.getPropertySources().remove("dynamicConfig");
@@ -267,9 +287,6 @@ public class ConfigListener implements CommandLineRunner {
         // 添加到 environment 最前面（优先级高）
         environment.getPropertySources().addFirst(propertySource);
     }
-
-    @Autowired
-    private ContextRefresher contextRefresher;
 
     private void refresh() {
         refreshConfigProperties(); // 先更新 Environment
@@ -299,13 +316,12 @@ public class ConfigListener implements CommandLineRunner {
     public void run(String... args) {
         System.out.println("==========================================");
         System.out.println("Spring Boot 配置监听客户端启动完成");
-        System.out.println("监听配置: " + dataId);
-        System.out.println("注册中心: " + registryUrl);
+        System.out.println("监听配置: " + getDataId());
+        System.out.println("注册中心: " + asAcProperties.getRegistryUrl());
         System.out.println("当前配置:");
         configProperties.forEach((key, value) -> {
             System.out.println("  " + key + " = " + value);
         });
         System.out.println("==========================================");
     }
-
 }

@@ -25,11 +25,15 @@ public class HealthController {
     @Value("${spring.application.name}")
     private String applicationName;
 
+    @Value("${user.name}")
+    private String userName;
+
     @GetMapping("/health")
     public Result health() {
         Map<String, Object> data = new HashMap<>();
         data.put("status", "UP");
         data.put("applicationName", applicationName);
+        data.put("userName", userName);
         data.put("service", serviceName);
         data.put("instanceId", instanceId);
         data.put("timestamp", System.currentTimeMillis());

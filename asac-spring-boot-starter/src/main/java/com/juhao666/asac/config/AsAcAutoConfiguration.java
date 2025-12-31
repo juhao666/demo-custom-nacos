@@ -1,11 +1,14 @@
 package com.juhao666.asac.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.juhao666.asac.service.RegistrationService;
+import com.juhao666.asac.client.ConfigListener;
+import com.juhao666.asac.client.RegistrationService;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cloud.context.refresh.ContextRefresher;
 import org.springframework.context.annotation.*;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.type.AnnotationMetadata;
 import org.springframework.web.client.RestTemplate;
 
@@ -47,5 +50,16 @@ public class AsAcAutoConfiguration implements ImportBeanDefinitionRegistrar {
             RestTemplate restTemplate,
             ScheduledExecutorService executorService) {
         return new RegistrationService(properties, restTemplate, executorService);
+    }
+
+    @Bean
+    @ConditionalOnMissingBean(value = ConfigListener.class, name = "configListener")
+    public ConfigListener configListener(
+            AsAcProperties properties,
+            RestTemplate restTemplate,
+            ObjectMapper objectMapper,
+            ConfigurableEnvironment environment,
+            ContextRefresher contextRefresher) {
+        return new ConfigListener(properties, restTemplate, objectMapper, environment, contextRefresher);
     }
 }
