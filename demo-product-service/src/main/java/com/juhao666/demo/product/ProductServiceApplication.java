@@ -18,15 +18,6 @@ import java.util.concurrent.ScheduledExecutorService;
 public class ProductServiceApplication {
 	private static final int PORT = 8002;
 
-	@Autowired
-	private RegistrationService registrationService;
-
-	@PostConstruct
-	public void init() {
-		registrationService.registerToRegistry();
-	}
-
-
 	// 心跳线程池
 	private final ScheduledExecutorService heartbeatExecutor =
 			Executors.newSingleThreadScheduledExecutor();

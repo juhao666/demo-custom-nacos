@@ -10,17 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @EnableAsAc
 public class OrderServiceApplication {
-
     private static final int PORT = 8003;
-
-    @Autowired
-    private RegistrationService registrationService;
-
-    @PostConstruct
-    public void init() {
-        registrationService.registerToRegistry();
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(OrderServiceApplication.class, args);
         System.out.println("==========================================");

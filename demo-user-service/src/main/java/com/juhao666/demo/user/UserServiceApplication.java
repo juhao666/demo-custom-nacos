@@ -12,14 +12,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class UserServiceApplication {
     private static final int PORT = 8001;
 
-    @Autowired
-    private RegistrationService registrationService;
-
-    @PostConstruct
-    public void init() {
-        registrationService.registerToRegistry();
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(UserServiceApplication.class, args);
         System.out.println("==========================================");
