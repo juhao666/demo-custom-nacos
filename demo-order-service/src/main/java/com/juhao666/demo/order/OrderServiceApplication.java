@@ -14,7 +14,7 @@ public class OrderServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderServiceApplication.class, args);
         System.out.println("==========================================");
-        System.out.println("商品服务启动成功！");
+        System.out.println("订单服务启动成功！");
         System.out.println("端口: " + PORT);
         System.out.println("API文档:");
         System.out.println("  - 获取所有商品: GET /api/orders");

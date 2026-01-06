@@ -5,10 +5,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.juhao666.asac.config.AsAcProperties;
 import io.micrometer.common.util.StringUtils;
-import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.cloud.context.refresh.ContextRefresher;
 import org.springframework.context.ApplicationListener;
@@ -20,21 +17,20 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 import org.springframework.web.client.ResourceAccessException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.Properties;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicReference;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicReference;
+
+/**
+ * 通过实现EnvironmentAware接口，在环境准备完成后（bean创建之前）立即加载配置
+ */
 public class ConfigListener implements EnvironmentAware, ApplicationListener<ApplicationReadyEvent> {
 
     private boolean configLoaded = false;
@@ -75,7 +71,6 @@ public class ConfigListener implements EnvironmentAware, ApplicationListener<App
         return applicationName  + env + ".properties";
     }
 
-    // 移除@PostConstruct
     // 新增环境感知接口实现
     @Override
     public void setEnvironment(Environment environment) {
@@ -92,21 +87,23 @@ public class ConfigListener implements EnvironmentAware, ApplicationListener<App
         refreshConfigProperties();
     }
 
-    // 新增事件监听
+    // 新增事件监听,它会在 Spring Boot 应用程序完全启动并准备就绪时执行。具体来说：
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
         if (!configLoaded) {
             throw new IllegalStateException("远程配置未成功加载，应用启动终止");
         }
-        startListening(); // 应用完全就绪后启动监听
-    }
-    //@PostConstruct//触发时机：Bean 依赖注入完成后立即执行
-    public void init() {
         System.out.println("🚀 配置监听器初始化...");
-        // 初始化时获取配置
-        fetchInitialConfig();
-        // 启动监听线程
-        startListening();
+        startListening(); // 应用完全就绪后启动监听
+        System.out.println("==========================================");
+        System.out.println("Spring Boot 配置监听客户端启动完成");
+        System.out.println("监听配置: " + getDataId());
+        System.out.println("注册中心: " + asAcProperties.getRegistryUrl());
+        System.out.println("当前配置:");
+        configProperties.forEach((key, value) -> {
+            System.out.println("  " + key + " = " + value);
+        });
+        System.out.println("==========================================");
     }
 
     @PreDestroy

@@ -16,6 +16,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.locks.StampedLock;
 
 /**
+ * 还未用到
  * 注册中心存储组件 - 线程安全设计
  * 使用ConcurrentHashMap和StampedLock保证高并发读写性能
  */

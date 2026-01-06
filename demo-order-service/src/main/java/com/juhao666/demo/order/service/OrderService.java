@@ -23,7 +23,7 @@ public class OrderService {
         orderDatabase.put(4L, new Order(4L, "小米电视 75寸", 4999.00, "4K超高清智能电视", "家电", 30));
         orderDatabase.put(5L, new Order(5L, "海尔冰箱", 3999.00, "对开门节能冰箱", "家电", 40));
 
-        System.out.println("✅ 初始化测试数据完成，共 " + orderDatabase.size() + " 个商品");
+        System.out.println("✅ 初始化测试数据完成，共 " + orderDatabase.size() + " 个订单");
     }
 
     public List<Order> getAllOrders() {

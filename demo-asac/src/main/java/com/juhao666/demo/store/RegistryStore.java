@@ -50,6 +50,13 @@ public class RegistryStore {
 
     @PostConstruct
     public void init() {
+        ConfigItem orderServiceConfig = new ConfigItem();
+        orderServiceConfig.setDataId("demo-order-service.properties");
+        orderServiceConfig.setGroup("DEFAULT_GROUP");
+        orderServiceConfig.setContent("order.name=order-config-1");
+        orderServiceConfig.setMd5(calculateMD5(orderServiceConfig.getContent()));
+        configStore.put("demo-order-service.properties:DEFAULT_GROUP", orderServiceConfig);
+
         System.out.println("✅ RegistryStore初始化完成，使用线程安全存储结构");
         statistics.put("startTime", System.currentTimeMillis());
         statistics.put("serviceCount", 0L);
